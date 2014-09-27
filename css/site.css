@@ -1,0 +1,211 @@
+body, input, button, textarea {
+  font:15px/24px 'Helvetica Neue', helvetica, sans-serif;
+  }
+
+/* Header 
+ * ============================*/
+header {
+  margin-top:60px;
+  text-align:center;
+  }
+header h1 {
+  font-weight:200;
+  display:inline-block;
+  margin:0;
+  font-size:16px;
+  font-weight:500;
+  }
+header nav {
+  position:absolute;
+  right:0;
+  top:30px;
+  }
+header.map {
+  background:#fff;
+  margin:0;
+  height:80px;
+  text-align:left;
+  }
+  header.map > div {
+    padding:0;
+    }
+  header.map h1 {
+    line-height:80px;
+    }
+
+/* Everything else. 
+ * ============================*/
+.strong,
+strong {
+  font-weight:bold;
+  }
+a {
+  color:#10a1cf;
+  font-weight:bold;
+  }
+  a:hover { color:#0f8db4; }
+.icon       { opacity:0.65; }
+.icon:hover { opacity:1; }
+.sprite {
+  background:transparent url(../img/sprite@2x.png) no-repeat 0 0;
+  background-size:160px 135px;
+  }
+  .sprite.logo {
+    display:block;
+    text-indent:-999em;
+    width:110px;
+    height:135px;
+    margin:0 auto;
+    }
+  header.map .sprite.logo {
+    background-position:-110px 0;
+    width:50px;
+    height:60px;
+    float:left;
+    margin:8px 10px 0 0;
+    }
+  .sprite.icon {
+    background-position:0 0;
+    display:inline-block;
+    height:40px;
+    width:40px;
+    }
+    .sprite.icon.sprocket { background-position:-110px -70px; }
+
+.fill-light {
+  background-color:#eee;
+  }
+.limiter {
+  width:83.3333%;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+  }
+.error > span:not(:empty) {
+  color:#fff;
+  display:inline-block;
+  background-color:#404040;
+  padding:0 10px;
+  line-height:30px;
+  -webkit-transform:translateY(-100%) translateX(5px);
+     -moz-transform:translateY(-100%) translateX(5px);
+      -ms-transform:translateY(-100%) translateX(5px);
+          transform:translateY(-100%) translateX(5px);
+  -webkit-border-radius:3px;
+          border-radius:3px;
+  }
+  .error > span:not(:empty):before {
+    content:'';
+    display:block;
+    position:absolute;
+    bottom:-6px;
+    width:0; 
+    height:0; 
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    border-top:8px solid #404040;
+    }
+.pin-toprleft {
+  position:absolute;
+  top:0;
+  left:0; 
+  }
+input[type=text] {
+  display:inline-block;
+  height:40px;
+  margin:0;
+  color:rgba(0,0,0,.5);
+  padding:10px 20px;
+  border:none;
+  -webkit-appearance:none;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  }
+button {
+  background-color:#1bbaec;
+  text-align:center;
+  color:#fff;
+  display:inline-block;
+  height:40px;
+  margin:0;
+  padding:10px;
+  position:relative;
+  border:none;
+  cursor:pointer;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  line-height:20px;
+  font-size:15px;
+  font-weight:bold;
+  -webkit-appearance:none;
+  -webkit-font-smoothing:antialiased;
+  }
+  button.zeroclipboard-is-hover,
+  button:hover { background-color:#10a1cf }
+  button:active { background-color:#0f8db4; }
+  
+.form-pill input[type=text] {
+  -webkit-border-radius:20px 0 0 20px;
+          border-radius:20px 0 0 20px;
+  }
+.form-pill button {
+  -webkit-border-radius:0 20px 20px 0;
+          border-radius:0 20px 20px 0;
+  }
+
+/* Dropdown navigation. 
+ * ============================*/
+.tooltip {
+  cursor:pointer;
+  }
+.tooltip nav {
+  position:absolute;
+  background:#404040;
+  line-height:20px;
+  display:none;
+  border-radius:3px;
+  width:auto;
+  text-indent:0;
+  z-index:1001;
+  }
+  .tooltip nav a {
+    color:#fff;
+    display:block;
+    padding:0 10px;
+    line-height:30px;
+    }
+  .tooltip nav:after {
+    content:'';
+    display:block;
+    position:absolute;
+    }
+  .tooltip:hover nav { display:block; }
+  .tooltip nav:hover {
+    background-color:#4f4f4f;
+    }
+  .tooltip nav {
+    right:0;
+    top:40px;
+    }
+    .tooltip nav:after {
+      border-left:8px solid transparent;
+      border-right:8px solid transparent;
+      border-bottom:8px solid #404040;
+      top:-6px;
+      right:12px;
+      }
+    .tooltip nav:hover:after {
+      border-bottom-color:#4f4f4f;
+      }
+
+@media only screen and (max-width:640px) {
+header { margin-top:0; }
+.form-pill input[type=text] {
+  -webkit-border-radius:0;
+          border-radius:0;
+  }
+.form-pill button {
+  -webkit-border-radius:0 0 8px 8px;
+          border-radius:0 0 8px 8px;
+  }
+}
