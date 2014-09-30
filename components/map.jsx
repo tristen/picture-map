@@ -16,11 +16,15 @@ module.exports = React.createClass({
         var map = L.mapbox.map('map', this.state.mapid)
             .setView(this.state.center, this.state.zoom);
 
+        // Disable some default map interactions.
+        map.scrollWheelZoom.disable();
+        if (map.tap) map.tap.disable();
+
         map.on('moveend', function(e) {
             var c = map.getCenter();
             component.setState({
                 zoom: map.getZoom(),
-                mapid: [c.lat, c.lng]
+                center: [c.lat, c.lng]
             });
         });
     },
@@ -31,7 +35,11 @@ module.exports = React.createClass({
                     <div id='controls' className='controls'></div>
                 </div>
                 <div className='limiter'>
-                    <CopyLink center={this.state.center} />
+                    <CopyLink
+                        mapid={this.state.mapid}
+                        zoom={this.state.zoom}
+                        center={this.state.center}
+                    />
                 </div>
             </div>
         )

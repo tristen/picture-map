@@ -1,5 +1,6 @@
 var ZeroClipboard = require('zeroclipboard');
 var wookie = require('wookie');
+var geojsonToImage = require('geojson-to-image');
 
 module.exports = React.createClass({
     componentDidMount: function() {
@@ -16,18 +17,23 @@ module.exports = React.createClass({
             });
         });
     },
+    handleClick: function(e) {
+        e.preventDefault();
+    },
     render: function() {
-        var url = 'http://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/';
-        url = this.props.center.join(',') +
-        '/500x300.png?access_token=' +
-        wookie.get('accessToken');
+        var url = geojsonToImage({
+            mapID: this.props.mapid,
+            accessToken: wookie.get('accessToken')
+        }, [], {
+            coordinates: this.props.center,
+            zoom: this.props.zoom
+        });
 
-        console.log('here');
         return (
             <div className='col8 margin2'>
                 <form className='col12 clearfix form-pill contain' onSubmit={this.handleSubmit}>
                     <input id='copy-contents' type='text' className='col8' value={url} />
-                    <button id='copy' className='col4'>Copy link</button>
+                    <button id='copy' className='col4' onClick={this.handleClick}>Copy link</button>
                 </form>
             </div>
         )
