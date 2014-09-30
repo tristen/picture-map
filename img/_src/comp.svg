@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="144.70258"
-     inkscape:cy="85.202035"
+     inkscape:cx="111.11501"
+     inkscape:cy="78.130967"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -913,7 +913,7 @@
        transform="matrix(1.4285715,0,0,0.9,56.428568,878.66218)" />
     <path
        style="color:#000000;fill:#d4a600;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 113,917.36216 0,3 -3,0 0,54.00002 3,0 0,3 44,0 0,-3 3,0 0,-54.00001 -3,-10e-6 0,-3 z m 2,5 40,0 0,50.00002 -40,0 z"
+       d="m 112,917.36216 0,2 -2,0 0,56.00002 2,0 0,2 46,0 0,-2 2,0 0,-56.00001 -2,-10e-6 0,-2 z m 3,5 40,0 0,50.00002 -40,0 z"
        id="path6522"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccccccccccc" />

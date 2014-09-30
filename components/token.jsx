@@ -19,12 +19,16 @@ module.exports = React.createClass({
     handleSubmit: function(e) {
         e.preventDefault();
         var component = this;
-        this._validToken(this.state.text, function(res) {
-            if (res) {
-                wookie.set('accessToken', component.state.text);
-                component.setState({visible: ''});
+        var submit = e.target.querySelector('button');
+        var previous = submit.textContent;
+
+        submit.textContent = 'Loading';
+        this._validToken(this.state.text, function(err, res) {
+            if (err) {
+                submit.textContent = previous;
+                component.setState({errorMsg: err});
             } else {
-                component.setState({errorMsg: 'Invalid token'});
+                component.props.accessToken({token: component.state.text});
             }
         });
     },
@@ -32,8 +36,8 @@ module.exports = React.createClass({
         request(staticUrl + token, {
             withCredentials: false
         }, function(err, res) {
-            if (err || res.statusCode !== 200) return cb(false);
-            return cb(true);
+            if (err || res.statusCode !== 200) return cb('Invalid token');
+            return cb(null);
         });
     },
     render: function() {
@@ -47,7 +51,7 @@ module.exports = React.createClass({
                             <button className='col4'>Enter access token</button>
                         </form>
                         <div className='col12 center small quiet'>
-                            Don't know your <a href='https://www.mapbox.com/help/define-access-token/' target='_blank'>accessToken</a>?
+                            Don't know your <a href='https://www.mapbox.com/help/define-access-token/' target='_blank'>Access token?</a>
                         </div>
                     </div>
                 </div>

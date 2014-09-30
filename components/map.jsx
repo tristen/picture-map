@@ -1,12 +1,37 @@
 var CopyLink = require('./copylink.jsx');
+var mb = require('mapbox.js');
+var wookie = require('wookie');
 
 module.exports = React.createClass({
+    getInitialState: function() {
+        return {
+            zoom: 3,
+            center: [30, -20],
+            mapid: 'tristen.map-4s93c8qx'
+        };
+    },
+    componentDidMount: function() {
+        L.mapbox.accessToken = wookie.get('accessToken');
+        var component = this;
+        var map = L.mapbox.map('map', this.state.mapid)
+            .setView(this.state.center, this.state.zoom);
+
+        map.on('moveend', function(e) {
+            var c = map.getCenter();
+            component.setState({
+                zoom: map.getZoom(),
+                mapid: [c.lat, c.lng]
+            });
+        });
+    },
     render: function() {
         return (
             <div>
+                <div id='map' className='map space-bottom2'>
+                    <div id='controls' className='controls'></div>
+                </div>
                 <div className='limiter'>
-                    <div id='map' className='map'></div>
-                    <CopyLink />
+                    <CopyLink center={this.state.center} />
                 </div>
             </div>
         )

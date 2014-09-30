@@ -2,7 +2,7 @@ body, input, button, textarea {
   font:15px/24px 'Helvetica Neue', helvetica, sans-serif;
   }
 
-/* Header 
+/* Header
  * ============================*/
 header {
   margin-top:60px;
@@ -18,7 +18,8 @@ header h1 {
 header nav {
   position:absolute;
   right:0;
-  top:30px;
+  top:20px;
+  display:none;
   }
 header.map {
   background:#fff;
@@ -29,11 +30,14 @@ header.map {
   header.map > div {
     padding:0;
     }
+  header.map > div > nav {
+    display:block;
+    }
   header.map h1 {
     line-height:80px;
     }
 
-/* Everything else. 
+/* Everything else.
  * ============================*/
 .strong,
 strong {
@@ -41,7 +45,6 @@ strong {
   }
 a {
   color:#10a1cf;
-  font-weight:bold;
   }
   a:hover { color:#0f8db4; }
 .icon       { opacity:0.65; }
@@ -70,7 +73,7 @@ a {
     height:40px;
     width:40px;
     }
-    .sprite.icon.sprocket { background-position:-110px -70px; }
+    .sprite.icon.sprocket { background-position:-110px -60px; }
 
 .fill-light {
   background-color:#eee;
@@ -94,13 +97,13 @@ a {
   -webkit-border-radius:3px;
           border-radius:3px;
   }
-  .error > span:not(:empty):before {
+  .error > span:not(:empty):after {
     content:'';
     display:block;
     position:absolute;
     bottom:-6px;
-    width:0; 
-    height:0; 
+    width:0;
+    height:0;
     border-left:8px solid transparent;
     border-right:8px solid transparent;
     border-top:8px solid #404040;
@@ -108,7 +111,7 @@ a {
 .pin-toprleft {
   position:absolute;
   top:0;
-  left:0; 
+  left:0;
   }
 input[type=text] {
   display:inline-block;
@@ -143,7 +146,7 @@ button {
   button.zeroclipboard-is-hover,
   button:hover { background-color:#10a1cf }
   button:active { background-color:#0f8db4; }
-  
+
 .form-pill input[type=text] {
   -webkit-border-radius:20px 0 0 20px;
           border-radius:20px 0 0 20px;
@@ -152,8 +155,13 @@ button {
   -webkit-border-radius:0 20px 20px 0;
           border-radius:0 20px 20px 0;
   }
+.leaflet-container,
+.map {
+  background-color:#f8f8f8;
+  height:500px;
+  }
 
-/* Dropdown navigation. 
+/* Dropdown navigation.
  * ============================*/
 .tooltip {
   cursor:pointer;
@@ -173,6 +181,7 @@ button {
     display:block;
     padding:0 10px;
     line-height:30px;
+    font-weight:bold;
     }
   .tooltip nav:after {
     content:'';
