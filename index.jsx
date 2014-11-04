@@ -1,21 +1,21 @@
 window.React = require('react');
+
 var Header = require('./components/header.jsx');
 var Nav = require('./components/nav.jsx');
 var Token = require('./components/token.jsx');
 var Map = require('./components/map.jsx');
-var wookie = require('wookie');
 
 var App = React.createClass({
     manageAuth: function(data) {
         (data.token) ?
-            wookie.set('accessToken', data.token) :
-            wookie.unset('accessToken');
+            localStorage.setItem('accessToken', data.token) :
+            localStorage.removeItem('accessToken');
 
-        this.setState({auth: wookie.get('accessToken')});
+        this.setState({auth: localStorage.getItem('accessToken')});
     },
     getInitialState: function() {
         return {
-            auth: wookie.get('accessToken') ? true : false
+            auth: localStorage.getItem('accessToken') ? true : false
         };
     },
     render: function() {
@@ -41,7 +41,7 @@ var App = React.createClass({
     }
 });
 
-React.renderComponent(
+React.render(
   <App />,
   document.getElementById('content')
 );

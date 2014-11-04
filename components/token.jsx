@@ -1,7 +1,6 @@
 var Err = require('./error.jsx');
-var wookie = require('wookie');
-var request = require('request');
-var staticUrl = 'http://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/-73.99,40.70,13/500x300.png?access_token=';
+var xhr = require('xhr');
+var uri = 'https://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/-73.99,40.70,13/500x300.png?access_token=';
 
 module.exports = React.createClass({
     getInitialState: function() {
@@ -33,9 +32,12 @@ module.exports = React.createClass({
         });
     },
     _validToken: function(token, cb) {
-        request(staticUrl + token, {
-            withCredentials: false
-        }, function(err, res) {
+        xhr({
+            uri: uri,
+            headers: {
+                withCredentials: false
+            }
+        }, function(err) {
             if (err || res.statusCode !== 200) return cb('Invalid token');
             return cb(null);
         });

@@ -2,7 +2,6 @@ require('mapbox.js');
 
 var Output = require('./output.jsx');
 var Controls = require('./controls.jsx');
-var wookie = require('wookie');
 
 module.exports = React.createClass({
     getInitialState: function() {
@@ -13,7 +12,7 @@ module.exports = React.createClass({
         };
     },
     componentDidMount: function() {
-        L.mapbox.accessToken = wookie.get('accessToken');
+        L.mapbox.accessToken = localStorage.getItem('accessToken');
         var component = this;
         var map = L.mapbox.map('map', this.state.mapid)
             .setView(this.state.center, this.state.zoom);

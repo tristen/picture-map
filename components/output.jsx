@@ -1,5 +1,4 @@
 var ZeroClipboard = require('zeroclipboard');
-var wookie = require('wookie');
 var geojsonToImage = require('geojson-to-image');
 
 module.exports = React.createClass({
@@ -23,7 +22,7 @@ module.exports = React.createClass({
     render: function() {
         var url = geojsonToImage({
             mapID: this.props.mapid,
-            accessToken: wookie.get('accessToken')
+            accessToken: localStorage.getItem('accessToken')
         }, [], {
             coordinates: this.props.center,
             zoom: this.props.zoom

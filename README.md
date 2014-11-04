@@ -3,7 +3,3 @@ Create a map and export it as an image using the [Mapbox static API](https://www
 ### Running
 
     npm install && npm start
-
-### Tests
-
-    npm test

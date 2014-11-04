@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "description": "Create static map images",
   "scripts": {
-    "start": "watchify -d -t reactify ./index.jsx -o ./build/bundle.js & serve",
-    "test": "tape test/*.test.js"
+    "start": "watchify -d -t reactify ./index.jsx -o ./build/bundle.js & serve"
   },
-  "main": "src/index.jsx",
+  "main": "index.jsx",
   "repository": {
     "type": "git",
     "url": "git://github.com/tristen/picture-map.git"
@@ -14,7 +13,6 @@
   "keywords": [
     "image",
     "maps",
-    "static",
     "mapbox"
   ],
   "author": "@tristen",
@@ -24,17 +22,16 @@
   },
   "homepage": "https://github.com/tristen/picture-map",
   "devDependencies": {
-    "watchify": "^1.0.2",
-    "browserify": "^5.11.2",
-    "reactify": "^0.14.0",
-    "tape": "^3.0.0"
+    "watchify": "2.1.1",
+    "browserify": "6.2.0",
+    "reactify": "0.15.2",
+    "tape": "3.0.0"
   },
   "dependencies": {
     "geojson-to-image": "0.0.0",
-    "mapbox.js": "^2.1.0",
-    "react": "^0.11.2",
-    "request": "^2.44.0",
-    "wookie": "0.0.1",
-    "zeroclipboard": "^2.1.6"
+    "mapbox.js": "2.1.4",
+    "react": "0.12.0",
+    "xhr": "1.17.0",
+    "zeroclipboard": "2.1.6"
   }
 }
