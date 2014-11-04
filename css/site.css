@@ -51,7 +51,7 @@ a {
 .icon:hover { opacity:1; }
 .sprite {
   background:transparent url(../img/sprite@2x.png) no-repeat 0 0;
-  background-size:160px 135px;
+  background-size:160px 140px;
   }
   .sprite.logo {
     display:block;
@@ -73,7 +73,8 @@ a {
     height:40px;
     width:40px;
     }
-    .sprite.icon.sprocket { background-position:-110px -60px; }
+    .sprite.icon.sprocket { background-position:-115px -60px; }
+    .sprite.icon.share    { background-position:-115px -100px; }
 
 .fill-light {
   background-color:#eee;
@@ -156,9 +157,13 @@ button {
           border-radius:0 20px 20px 0;
   }
 .leaflet-container,
-.map {
+.map,
+.controls {
+  height:480px;
   background-color:#f8f8f8;
-  height:500px;
+  }
+.controls {
+  z-index:100;
   }
 
 /* Dropdown navigation.

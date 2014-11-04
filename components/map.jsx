@@ -1,5 +1,7 @@
-var CopyLink = require('./copylink.jsx');
-var mb = require('mapbox.js');
+require('mapbox.js');
+
+var Output = require('./output.jsx');
+var Controls = require('./controls.jsx');
 var wookie = require('wookie');
 
 module.exports = React.createClass({
@@ -31,11 +33,12 @@ module.exports = React.createClass({
     render: function() {
         return (
             <div>
-                <div id='map' className='map space-bottom2'>
-                    <div id='controls' className='controls'></div>
+                <div className='col12 clearfix'>
+                    <Controls />
+                    <div id='map' className='map col8'></div>
                 </div>
                 <div className='limiter'>
-                    <CopyLink
+                    <Output
                         mapid={this.state.mapid}
                         zoom={this.state.zoom}
                         center={this.state.center}

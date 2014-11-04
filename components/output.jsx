@@ -30,11 +30,16 @@ module.exports = React.createClass({
         });
 
         return (
-            <div className='col8 margin2'>
-                <form className='col12 clearfix form-pill contain' onSubmit={this.handleSubmit}>
-                    <input id='copy-contents' type='text' className='col8' value={url} />
-                    <button id='copy' className='col4' onClick={this.handleClick}>Copy link</button>
-                </form>
+            <div className='col12 clearfix contain'>
+                <div className='col8 margin2 margin2r contain'>
+                    <form className='col12 clearfix form-pill contain' onSubmit={this.handleSubmit}>
+                        <input id='copy-contents' type='text' className='col8' value={url} readOnly />
+                        <button id='copy' className='col4' onClick={this.handleClick}>Copy link</button>
+                    </form>
+                </div>
+                <div className='pin-right'>
+                    <a href={url} target='_blank' className='pin-right sprite icon share'></a>
+                </div>
             </div>
         )
     }
